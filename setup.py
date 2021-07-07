@@ -4,7 +4,7 @@ with open("c:/code/flask-python/readme.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="flask-package-app-terents",
+    name="flask-fleur-home",
     version="Alpha0.0.1",
     author="thelolcoder2007",
     author_email="simon.vanharingen@gmail.com",
@@ -19,5 +19,5 @@ setuptools.setup(
     package_dir={"":"flask"},
     packages=setuptools.find_packages(where="flask"),
     python_requires=">=3.9"
-    install_requires=['flask', 'flask_wtf', 'wtforms']
 )
+install_requires=['flask', 'flask_wtf', 'wtforms']
