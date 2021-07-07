@@ -1,9 +1,0 @@
-pyproject.toml
-setup.py
-flask/app/__init__.py
-flask/app/forms.py
-flask/app/routes.py
-flask/flask_package_app_terents.egg-info/PKG-INFO
-flask/flask_package_app_terents.egg-info/SOURCES.txt
-flask/flask_package_app_terents.egg-info/dependency_links.txt
-flask/flask_package_app_terents.egg-info/top_level.txt
