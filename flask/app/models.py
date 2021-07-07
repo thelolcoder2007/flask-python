@@ -11,6 +11,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(128))
     password_hash = db.Column(db.String(128))
     admin_access = db.Column(db.Boolean)
+    about_me = db.Column(db.String(140))
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __Repr__(self):
         return '<user {}>'.format(self.username)
