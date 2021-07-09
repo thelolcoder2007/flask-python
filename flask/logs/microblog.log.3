@@ -1,0 +1,123 @@
+2021-07-09 12:46:20,383 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 12:46:23,162 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 32, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 12:46:26,691 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 32, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 12:46:37,304 ERROR: Exception on /explore [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 47, in explore
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 12:46:39,075 ERROR: Exception on /user/thomas [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 132, in user
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 12:46:40,590 ERROR: Exception on /user/thomas [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 132, in user
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 12:46:44,202 ERROR: Exception on /user/thomas [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 132, in user
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 14:44:53,690 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 14:44:59,251 ERROR: Exception on /user/thomas [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 132, in user
+    if posts.has_next else None
+NameError: name 'posts' is not defined
+2021-07-09 14:46:23,389 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 14:46:24,104 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 32, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'

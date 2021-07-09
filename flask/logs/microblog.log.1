@@ -1,0 +1,95 @@
+2021-07-09 15:00:13,958 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 31, in index
+    posts = current_user.followed_posts().paginate(
+AttributeError: 'User' object has no attribute 'followed_posts'
+2021-07-09 15:03:58,930 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 31, in index
+    posts = current_user.followed_posts().paginate(
+AttributeError: 'User' object has no attribute 'followed_posts'
+2021-07-09 15:05:37,705 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 15:05:38,403 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 22, in index
+    return render_template('index.html', title='Home')
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 1068, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 997, in get_template
+    return self._load_template(name, globals)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 958, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\loaders.py", line 137, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\code\flask-python\flask\app\templates\index.html", line 9, in template
+    <a href="{{from fleurhome import fleur_home_huiswerk_assistent}}">Klik hier om fleur home te starten.</a>
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got 'fleurhome'
+2021-07-09 15:06:29,566 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 15:06:34,346 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 22, in index
+    return render_template('index.html', title='Home')
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 1068, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 997, in get_template
+    return self._load_template(name, globals)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 958, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\loaders.py", line 137, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 757, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\code\flask-python\flask\app\templates\index.html", line 9, in template
+    <a href="{{from fleurhome import fleur_home_huiswerk_assistent}}">Klik hier om fleur home te starten.</a>
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got 'fleurhome'
+2021-07-09 15:07:21,393 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]

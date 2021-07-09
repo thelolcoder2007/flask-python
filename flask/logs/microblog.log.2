@@ -1,0 +1,120 @@
+2021-07-09 14:46:27,394 ERROR: Exception on /index [GET] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\code\flask-python\flask\app\routes.py", line 32, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2021-07-09 14:48:35,974 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 14:48:50,794 ERROR: Exception on /login [POST] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\code\flask-python\flask\app\routes.py", line 62, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\orm\query.py", line 2760, in first
+    return self.limit(1)._iter().first()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\orm\query.py", line 2844, in _iter
+    result = self.session.execute(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('thomas', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+2021-07-09 14:50:58,924 ERROR: Exception on /login [POST] [in c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\code\flask-python\flask\app\routes.py", line 62, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\orm\query.py", line 2760, in first
+    return self.limit(1)._iter().first()
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\orm\query.py", line 2844, in _iter
+    result = self.session.execute(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\thomas\appdata\local\programs\python\python39\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('thomas', 1, 0)]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+2021-07-09 14:53:02,451 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 14:53:12,797 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 14:53:26,192 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
+2021-07-09 14:57:37,182 INFO: Microblog startup [in C:\code\flask-python\flask\app\__init__.py:47]
