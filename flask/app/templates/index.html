@@ -1,10 +1,9 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
     <h1>Hoi, {{ current_user.username }}!</h1>
     <h3>Welkom op fleurhome.merenwijkradio.nl<br/>
     Hier kan je je huiswerkvragen stellen aan fleur home.<br/>
     Bedankt voor het gebruiken van Fleur Home!</h3>
-    <a href="#">Klik hier om fleur home te starten.</a>
+    <a href="{{url_for('fleurhomeload')}}">Klik hier om fleur home te starten.</a>
 {% endblock %}
