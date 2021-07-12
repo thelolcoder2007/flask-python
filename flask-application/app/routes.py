@@ -1,17 +1,22 @@
 from datetime import datetime
-from flask import render_template, flask, redirect, url_for, request
-from flask_login import login_user, logout_user, current_userm login_required
+from flask import render_template, flash, redirect, url_for, request
+from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
-from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
+from app import app, db, login
+from app.forms import LoginForm, EditProfileForm
 from app.models import User
-from app.email import send_password_reset_email
+from app.error import Auth403Error
+from config import Config
 
 @app.before_request
 def before_request():
-    if current_user.is_authenticated:
+    if not current_user.is_anonymous:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+@login.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 @app.route('/')
 @app.route('/index')
@@ -42,9 +47,8 @@ def logout():
     return redirect(url_for('index'))
 
 @app.route('/user/<username>')
-@login_required
 def user(username):
-    user = User.query.filter_by(username=username).first_or_404()
+    user = User.query.filter_by(username=username).first()
     return render_template('user.html', user=user)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -62,6 +66,19 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 
+@app.route('/admin/')
+@login_required
+def admin():
+    inconfig = current_user.username in app.config['ADMINS']
+    if inconfig:
+        return render_template('admin.html', user=current_user, inconfig=inconfig)
+    else:
+        return render_template('403.html'), 403
+
+@app.errorhandler(403)
+def _403(error):
+    return render_template('403.html'), 403
+
 @app.errorhandler(404)
-def 404(error):
+def _404(error):
     return render_template('404.html'), 404
