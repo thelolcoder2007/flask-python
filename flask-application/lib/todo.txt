@@ -1,0 +1,5 @@
+# MUST
+- Als het niet bestaat, gooi een flash() ipv een error
+# SHOULD
+- Dropdownmenu
+- mysql server

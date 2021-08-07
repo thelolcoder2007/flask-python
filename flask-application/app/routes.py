@@ -24,7 +24,6 @@ def load_user(user_id):
 @login_required
 def index():
     form = FleurhomeForm(request.form)
-    print(form.validate())
     if request.method == 'POST':
         fleurhome.webrun(form.vak, form.dag)
     return render_template('index.html', title='index', form=form)

@@ -54,7 +54,7 @@ class Sql():
         cursor.execute('CREATE TABLE IF NOT EXISTS donderdag (id INT PRIMARY KEY NOT NULL, uur INT, vak TEXT, huiswerk TEXT)') #maak tabel donderdag aan als hij nog niet bestaat, met als kolommen id (integer, primary key, mag niet niks zijn), uur (int), vak (tekst) en huiswerk (tekst)
         cursor.execute('CREATE TABLE IF NOT EXISTS vrijdag (id INT PRIMARY KEY NOT NULL, uur INT, vak TEXT, huiswerk TEXT)') #maak tabel vrijdag aan als hij nog niet bestaat, met als kolommen id (integer, primary key, mag niet niks zijn), uur (int), vak (tekst) en huiswerk (tekst)
         vakken = [ #maak een enorme lijst aan, die ervoor zorgt dat alle values op éém plek staan. De tabel is opgebouwd uit [dag][vakid]
-        [[0,2,"aardrijkskunde", ""], [1,3,"muziek",""],[2,5,"geschiedenis", ""],[3,6,'duits',''],[4,7,'natuurkunde', ''],[5,8,'drama','']], #dit is de dag maandag.
+        [[0,2,"aardrijkskunde", "H2"], [1,3,"muziek",""],[2,5,"geschiedenis", ""],[3,6,'duits',''],[4,7,'natuurkunde', ''],[5,8,'drama','Monoloog']], #dit is de dag maandag.
         [[0,1,'beeldende vorming',''],[1,3,'frans',''], [2,4,'duits',''],[3,5,'engels',''],[4,6,'wiskunde','']], #dit is de dag dinsdag.
         [[0,1,'nederlands',''], [1,2,'grieks',''],[2,3,'wiskunde',''],[3,4,'duits',''],[4,5,'lichamelijke opvoeding',''], [5,7,'mentoruur','']], #dit is de dag woensdag.
         [[0,1,'latijn',''],[1,2,'aardrijkskunde',''],[2,3,'nederlands',''],[3,4,'geschiedenis',''],[4,5,'engels',''],[5,7,'frans','']], #dit is de dag donderdag.
