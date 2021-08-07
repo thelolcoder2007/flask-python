@@ -50,3 +50,8 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError('Please use a different username.')
+
+class FleurhomeForm(FlaskForm):
+    vak = StringField('Vak:', validators=[DataRequired()])
+    dag = StringField('Dag:', validators=[DataRequired()])
+    submit = SubmitField('Run fleur home')
