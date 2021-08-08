@@ -9,10 +9,6 @@ from flask import flash
 
 #define classes and functions
 class Input():
-    #no __init__ function
-    def __init__(self):
-        pass #stop de functie (er staat niks in)
-
 
     def get_method(self):
         method = input("Wil je tekst of spraak? ") #vraag: wil je tekst of spraak?

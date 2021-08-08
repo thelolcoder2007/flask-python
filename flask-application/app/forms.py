@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms.fields.core import SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 
@@ -52,6 +53,18 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username.')
 
 class FleurhomeForm(FlaskForm):
-    vak = StringField('Vak:', validators=[DataRequired()])
-    dag = StringField('Dag:', validators=[DataRequired()])
-    submit = SubmitField('Run fleur home')
+    vakken = {'maandag':['aardrijkskunde', 'muziek', 'geschiedenis', 'duits', 'natuurkunde', 'drama'],
+    'dinsdag':['Beeldende vorming', 'frans', 'duits', 'engels', 'wiskunde'],
+    'woensdag':[],
+    'donderdag':[],
+    'vrijdag':[]}
+    dagen = ['', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag']
+    dag = SelectField(u'Dag: ', choices=dagen, validators=[DataRequired()])
+    if dag in vakken:
+        if dag == 'maandag':
+            vak = SelectField(u'vak: ', choices=vakken['maandag'], validators=[DataRequired()])
+    submit = SubmitField('Submit dag')
+
+class FleurhomeForm_vak(FlaskForm):
+
+
