@@ -53,18 +53,15 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username.')
 
 class FleurhomeForm(FlaskForm):
-    vakken = {'maandag':['aardrijkskunde', 'muziek', 'geschiedenis', 'duits', 'natuurkunde', 'drama'],
-    'dinsdag':['Beeldende vorming', 'frans', 'duits', 'engels', 'wiskunde'],
+    vakken = {'maandag':['', 'aardrijkskunde', 'muziek', 'geschiedenis', 'duits', 'natuurkunde', 'drama'],
+    'dinsdag':['', 'Beeldende vorming', 'frans', 'duits', 'engels', 'wiskunde'],
     'woensdag':[],
     'donderdag':[],
     'vrijdag':[]}
     dagen = ['', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag']
-    dag = SelectField(u'Dag: ', choices=dagen, validators=[DataRequired()])
+    dag = 'maandag'#SelectField(u'Dag: ', choices=dagen, validators=[DataRequired()])
     if dag in vakken:
-        if dag == 'maandag':
-            vak = SelectField(u'vak: ', choices=vakken['maandag'], validators=[DataRequired()])
-    submit = SubmitField('Submit dag')
-
-class FleurhomeForm_vak(FlaskForm):
+        vak = SelectField(u'Vak: ', choices=vakken[dag], validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 
