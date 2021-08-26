@@ -39,8 +39,7 @@ class Input():
         self.gezegd = input_huiswerk #zorg ervoor dat wat je gezegd hebt, gebruikt kan worden in de class Sql.
 
 class Sql():
-    def __init__(self, input_huiswerk):
-        self.input_huiswerk = input_huiswerk #maak input_huiswerk een self.* variabele.
+    def __init__(self):
         """LET OP: VANAF HIER WORDT HET TIJDELIJKE CODE. IK MOET MYSQL.CONNECTOR HIERVOOR GEBRUIKEN ZODRA IK DAT OP DE MYSQLSERVER ONDER CONTROLE HEB"""
         self.database = sqlite3.connect('fleur_home_huiswerk_assistent.db') #initialiseer de database
         cursor = self.database.cursor() #maak een cursor aan. Deze cursor kan dingen in de database lezen en veranderen.
@@ -68,10 +67,10 @@ class Sql():
         for i in vakken[4]:
             cursor.execute('INSERT INTO vrijdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel vrijdag
 
-    def get_dagvak(self):
+    def get_dagvak(self, input_huiswerk):
         pattern = regex.compile(r'wat is het huiswerk voor (\w+) op (\w+)') #initialiseer regex
 
-        x = self.input_huiswerk.lower() #zorg dat alle letters kleine letters worden.
+        x = input_huiswerk.lower() #zorg dat alle letters kleine letters worden.
         match = pattern.match(x) #komt het overeen?
         if regex.compile(r'wat is het huiswerk voor (\w+) op (\w+)').search(x) is not None: #ja, het komt overeen (match = True)
             self.vak, self.dag = match.groups() #haal de self.vak en self.dag uit de regex. En zorg ervoor dat ze in andere functies gebruikt kunnen worden.
@@ -79,7 +78,7 @@ class Sql():
             print("Je hebt je niet aan de zin gehouden die hierboven is beschreven. Het programma sluit nu.") #print dat je het niet goed gedaan hebt.
             sys.exit() #stop het script.
 
-    def sql_processing(self):
+    def sql_processing(self, vak, dag):
         cursor = self.database.cursor() #open een cursor
         cursor.execute("select vak, huiswerk from "+self.dag) #run de select sql query, waardoor het vak en huiswerk geselecteerd worden.
         huiswerklijst = cursor.fetchall() #zorg ervoor dat de select query in een variabele komt.
@@ -114,9 +113,9 @@ class Output():
 def cmdrun():
         data = Input() #initialiseer Input class
         data.get_method() #hoe wil je het doen en doe het dan ook
-        sqldata = Sql(data.gezegd) #initialiseer Sql class
-        sqldata.get_dagvak() #krijg de dag en het vak
-        sqldata.sql_processing() # lees uit de database welk huiswerk je moet hebben
+        sqldata = Sql() #initialiseer Sql class
+        sqldata.get_dagvak(data.gezegd) #krijg de dag en het vak
+        sqldata.sql_processing(sqldata.vak, sqldata.dag) # lees uit de database welk huiswerk je moet hebben
         sqldata.close() #sluit de database
         output = Output(sqldata.vak, sqldata.dag, sqldata.huiswerk, data.methode) #initialiseer Output class
         output.spraakoftekst() #output het vervolgens.
@@ -134,10 +133,8 @@ class Weboutput():
 
 
 def webrun(vak, dag):
-    data = Webinput(vak.data, dag.data)
-    sqldata = Sql(data.gezegd)
-    sqldata.get_dagvak()
-    sqldata.sql_processing()
+    sqldata = Sql()
+    sqldata.sql_processing(vak.data, dag.data)
     sqldata.close()
     output = Weboutput(sqldata.vak, sqldata.dag, sqldata.huiswerk)
     flash(output.saying)

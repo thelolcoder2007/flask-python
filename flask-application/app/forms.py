@@ -52,16 +52,19 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError('Please use a different username.')
 
-class FleurhomeForm(FlaskForm):
-    vakken = {'maandag':['', 'aardrijkskunde', 'muziek', 'geschiedenis', 'duits', 'natuurkunde', 'drama'],
-    'dinsdag':['', 'Beeldende vorming', 'frans', 'duits', 'engels', 'wiskunde'],
-    'woensdag':[],
-    'donderdag':[],
-    'vrijdag':[]}
+class FleurhomeFormI(FlaskForm):
+    global dag
     dagen = ['', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag']
-    dag = 'maandag'#SelectField(u'Dag: ', choices=dagen, validators=[DataRequired()])
-    if dag in vakken:
-        vak = SelectField(u'Vak: ', choices=vakken[dag], validators=[DataRequired()])
+    dag = SelectField(u'Dag: ', choices=dagen, validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-
+class FleurhomeFormII(FlaskForm):
+    global dag
+    vakken = {'maandag':['', 'aardrijkskunde', 'muziek', 'geschiedenis', 'duits', 'natuurkunde', 'drama'],
+    'dinsdag':['', 'Beeldende vorming', 'frans', 'duits', 'engels', 'wiskunde'],
+    'woensdag':['', 'nederlands', 'grieks', 'wiskunde', 'duits', 'lichameljke opvoeding', "mentoruur"],
+    'donderdag':['', 'latijn', 'aardrijkskunde', 'nederlands', 'geschiedenis', 'engels', 'frans'],
+    'vrijdag':['','latijn', 'wiskunde', 'engels', 'nederlands', 'natuurkunde', 'grieks']}
+    if dag in vakken:
+        vak = SelectField(u'Vak: ', choices=vakken[dag], validators=[DataRequired()])
+        submit = SubmitField('Submit', validators=[DataRequired()])

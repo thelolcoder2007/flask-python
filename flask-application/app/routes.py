@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db, login
-from app.forms import LoginForm, EditProfileForm, FleurhomeForm
+from app.forms import LoginForm, EditProfileForm, FleurhomeFormI, FleurhomeFormII
 from app.models import User
 from app.error import Auth403Error
 from config import Config
@@ -19,14 +19,29 @@ def before_request():
 def load_user(user_id):
     return User.query.get(user_id)
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=["GET", "POST"])
+@app.route('/')
+@app.route('/index')
 @login_required
 def index():
-    form = FleurhomeForm(request.form)
+    return render_template('index.html', title='index')
+
+@app.route('/fleurhome', methods=['GET', 'POST'])
+def fleurhome():
+    global dag
+    dag = None
+    formI=FleurhomeFormI(request.form)
     if request.method == 'POST':
-        fleurhome.webrun(form.vak, form.dag)
-    return render_template('index.html', title='index', form=form)
+        dag = formI.dag.data
+    return render_template('fleurhome.html', title="fleurhome", form=formI)
+
+@app.route('/fleurhome/form2', methods=["get", 'post'])
+def fleurhome2():
+    formII = FleurhomeFormII(request.form)
+    if request.method == 'POST':
+        vak = formII.vak.data
+        if dag is not None:
+            fleurhome.webrun(vak, dag)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
