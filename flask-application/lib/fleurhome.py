@@ -81,11 +81,15 @@ class Sql():
 
     def sql_processing(self, vak, dag):
         cursor = self.database.cursor() #open een cursor
-        cursor.execute("select vak, huiswerk from "+self.dag) #run de select sql query, waardoor het vak en huiswerk geselecteerd worden.
+        self.vak = vak
+        self.dag = dag
+        cursor.execute("select vak, huiswerk from "+dag) #run de select sql query, waardoor het vak en huiswerk geselecteerd worden.
         huiswerklijst = cursor.fetchall() #zorg ervoor dat de select query in een variabele komt.
         for huiswerkitem in huiswerklijst: #voor elk item in huiswerklijst:
-            if huiswerkitem[0].lower() == self.vak: #als het eerste (vak) overeen komt met het vak wat is gevraagd:
+            if huiswerkitem[0].lower() == vak: #als het eerste (vak) overeen komt met het vak wat is gevraagd:
                 self.huiswerk = huiswerkitem[1] #zorg ervoor dat het in class Output gebruikt kan worden.
+            else:
+                self.huiswerk = "error"
 
     def close(self):
         self.database.commit()
@@ -95,9 +99,13 @@ class Sql():
 
 class Output():
     def __init__(self, vak, dag, huiswerk, methode):
+        self.vak = vak
+        self.dag = dag
         self.methode = methode #initialiseer variabele methode
         if huiswerk == "": #als er geen huiswerk is:
             self.saying = "er is geen huiswerk voor "+vak+" op "+dag+"." #zoeg ervoor dat dit straks geoutput wordt
+        elif huiswerk == "error":
+            self.saying = "Dat vak heb je niet vandaag"
         else: #of anders:
             self.saying = "het huiswerk voor "+vak+" op "+dag+" is "+huiswerk+"." #zorg ervoor dat dit straks geoutput wordt
 
@@ -132,6 +140,8 @@ class Weboutput():
     def __init__(self, vak, dag, huiswerk):
         if huiswerk == "":
             self.saying = 'Er is geen huiswerk voor '+vak+' op '+dag
+        elif huiswerk == "error":
+            self.saying = "Je hebt dat vak niet op die dag."
         else:
             self.saying = 'Het huiswerk voor '+vak+' op '+dag+' is '+huiswerk
 
