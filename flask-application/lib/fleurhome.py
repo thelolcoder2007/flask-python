@@ -40,7 +40,7 @@ class Input():
 
 class Sql():
     def __init__(self):
-        """LET OP: VANAF HIER WORDT HET TIJDELIJKE CODE. IK MOET MYSQL.CONNECTOR HIERVOOR GEBRUIKEN ZODRA IK DAT OP DE MYSQLSERVER ONDER CONTROLE HEB"""
+        
         self.database = sqlite3.connect('fleur_home_huiswerk_assistent.db') #initialiseer de database
         cursor = self.database.cursor() #maak een cursor aan. Deze cursor kan dingen in de database lezen en veranderen.
         cursor.execute('CREATE TABLE IF NOT EXISTS maandag (id INT PRIMARY KEY NOT NULL, uur INT, vak TEXT, huiswerk TEXT)') #maak tabel maandag aan als hij nog niet bestaat, met als kolommen id (integer, primary key, mag niet niks zijn), uur (int), vak (tekst) en huiswerk (tekst)
@@ -56,17 +56,18 @@ class Sql():
         [[0,1,'latijn',''],[1,2,'wiskunde',''],[2,3,'engels', ''], [3,4,'nederlands',''],[4,5,'natuurkunde',''], [5,6,'grieks','']] #dit is de dag vrijdag.
         ] #einde van de lijst
 
-        for i in vakken[0]:
-            cursor.execute('INSERT INTO maandag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel maandag
-        for i in vakken[1]:
-            cursor.execute('INSERT INTO dinsdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel dinsdag
-        for i in vakken[2]:
-            cursor.execute('INSERT INTO woensdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel woensdag
-        for i in vakken[3]:
-            cursor.execute('INSERT INTO donderdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel donderdag
-        for i in vakken[4]:
-            cursor.execute('INSERT INTO vrijdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel vrijdag
 
+        for i in vakken[0]:
+            cursor.execute('INSERT OR IGNORE INTO maandag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel maandag
+        for i in vakken[1]:
+            cursor.execute('INSERT OR IGNORE INTO dinsdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel dinsdag
+        for i in vakken[2]:
+            cursor.execute('INSERT OR IGNORE INTO woensdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel woensdag
+        for i in vakken[3]:
+            cursor.execute('INSERT OR IGNORE INTO donderdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel donderdag
+        for i in vakken[4]:
+            cursor.execute('INSERT OR IGNORE INTO vrijdag VALUES (?, ?, ?, ?)', (i[0],i[1],i[2],i[3])) #vul de tabel vrijdag
+        cursor.close()
     def get_dagvak(self, input_huiswerk):
         pattern = regex.compile(r'wat is het huiswerk voor (\w+) op (\w+)') #initialiseer regex
 
@@ -87,7 +88,10 @@ class Sql():
                 self.huiswerk = huiswerkitem[1] #zorg ervoor dat het in class Output gebruikt kan worden.
 
     def close(self):
+        self.database.commit()
         self.database.close() #sluit de database, zodat alles opgeslagen wordt.
+        
+
 
 class Output():
     def __init__(self, vak, dag, huiswerk, methode):
@@ -134,7 +138,7 @@ class Weboutput():
 
 def webrun(vak, dag):
     sqldata = Sql()
-    sqldata.sql_processing(vak.data, dag.data)
+    sqldata.sql_processing(vak, dag)
     sqldata.close()
     output = Weboutput(sqldata.vak, sqldata.dag, sqldata.huiswerk)
     flash(output.saying)
