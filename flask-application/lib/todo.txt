@@ -1,4 +1,2 @@
-# MUST
-- DROPDOWNMENU!!!
 # SHOULD
 - mysql server
