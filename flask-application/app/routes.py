@@ -3,11 +3,11 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db, login
-from app.forms import LoginForm, EditProfileForm, FleurhomeFormI, FleurhomeFormII
+from app.forms import LoginForm, EditProfileForm, FleurhomeForm
 from app.models import User
 from app.error import Auth403Error
 from config import Config
-from lib import fleurhome
+from lib.fleurhome import webrun
 
 @app.before_request
 def before_request():
@@ -27,20 +27,13 @@ def index():
 
 @app.route('/fleurhome', methods=['GET', 'POST'])
 def fleurhome():
-    global dag
-    dag = None
-    formI=FleurhomeFormI(request.form)
+    form= FleurhomeForm(request.form)
     if request.method == 'POST':
-        dag = formI.dag.data
-    return render_template('fleurhome.html', title="fleurhome", form=formI)
-
-@app.route('/fleurhome/form2', methods=["get", 'post'])
-def fleurhome2():
-    formII = FleurhomeFormII(request.form)
-    if request.method == 'POST':
-        vak = formII.vak.data
-        if dag is not None:
-            fleurhome.webrun(vak, dag)
+        vak = form.vak.data
+        dag = form.dag.data
+        webrun(vak, dag)
+    return render_template('fleurhome.html', title="fleurhome", form=form)
+    
 
 
 @app.route('/login', methods=['GET', 'POST'])
