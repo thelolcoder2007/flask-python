@@ -8,7 +8,6 @@ bleach==3.3.0
 blinker==1.4
 build==0.5.1
 certifi==2021.5.30
-cffi==1.14.5
 chardet==4.0.0
 click==8.0.1
 colorama==0.4.4
@@ -29,7 +28,7 @@ Flask-Mail==0.9.1
 Flask-Migrate==3.0.1
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==0.15.1
-greenlet==1.1.0
+
 gTTS==2.2.3
 idna==2.10
 importlib-metadata==4.6.1
@@ -45,7 +44,6 @@ keyring==23.0.1
 Mako==1.1.4
 MarkupSafe==2.0.1
 matplotlib-inline==0.1.2
-multidict==5.1.0
 mysql-connector-python==8.0.25
 packaging==21.0
 parso==0.8.2
@@ -88,5 +86,4 @@ wcwidth==0.2.5
 webencodings==0.5.1
 Werkzeug==2.0.1
 WTForms==2.3.3
-yarl==1.6.3
 zipp==3.5.0
