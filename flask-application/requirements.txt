@@ -33,7 +33,7 @@ gTTS==2.2.3
 idna==2.10
 importlib-metadata==4.6.1
 ipykernel==6.0.3
-ipython==7.26.0
+ipython==7.31.1
 ipython-genutils==0.2.0
 itsdangerous==2.0.1
 jedi==0.18.0
