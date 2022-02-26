@@ -49,7 +49,7 @@ packaging==21.0
 parso==0.8.2
 pep517==0.10.0
 pickleshare==0.7.5
-pipenv==2021.5.29
+pipenv==2022.1.8
 pkginfo==1.7.0
 playsound==1.2.2
 prompt-toolkit==3.0.19
