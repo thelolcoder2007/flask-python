@@ -1,8 +1,0 @@
-# MUST
-- 
-# SHOULD
-- mysql server
-# COULD
--
-# WOULD
--
